@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 
 const sections = [
   {
@@ -27,6 +27,9 @@ const sections = [
 export default function ScrollSequence() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [opacity, setOpacity] = useState(1);
+  const [translateX, setTranslateX] = useState(0);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -39,86 +42,157 @@ export default function ScrollSequence() {
     offset: ["start start", "end end"],
   });
 
-  // Text 1: already visible on arrival, fades out at ~40%
-  const t0Opacity = useTransform(scrollYProgress, [0, 0.28, 0.35], [1, 1, 0]);
-  const t0Y = useTransform(scrollYProgress, [0, 0.28, 0.35], [0, 0, -50]);
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    // Three zones: 0-0.33, 0.33-0.66, 0.66-1
+    const zoneSize = 1 / 3;
+    const newIndex = Math.min(2, Math.floor(v / zoneSize));
 
-  // Text 2: fades in right as text 1 leaves, holds, fades out
-  const t1Opacity = useTransform(scrollYProgress, [0.35, 0.42, 0.62, 0.69], [0, 1, 1, 0]);
-  const t1Y = useTransform(scrollYProgress, [0.35, 0.42, 0.62, 0.69], [50, 0, 0, -50]);
+    // Position within current zone (0 to 1)
+    const posInZone = (v - newIndex * zoneSize) / zoneSize;
 
-  // Text 3: fades in right as text 2 leaves, holds until end
-  const t2Opacity = useTransform(scrollYProgress, [0.69, 0.76, 1.0], [0, 1, 1]);
-  const t2Y = useTransform(scrollYProgress, [0.69, 0.76, 1.0], [50, 0, 0]);
+    // Transition zone: last 15% fading out (slide right), first 15% fading in (slide from left)
+    let newOpacity = 1;
+    let newTranslateX = 0;
 
-  const textSections = [
-    { opacity: t0Opacity, y: t0Y },
-    { opacity: t1Opacity, y: t1Y },
-    { opacity: t2Opacity, y: t2Y },
-  ];
+    if (posInZone > 0.85 && newIndex < 2) {
+      // Leaving — slide to the right and fade out
+      const t = (posInZone - 0.85) / 0.15;
+      newOpacity = 1 - t;
+      newTranslateX = t * 80;
+    } else if (posInZone < 0.15 && newIndex > 0) {
+      // Entering — slide in from the left
+      const t = posInZone / 0.15;
+      newOpacity = t;
+      newTranslateX = (1 - t) * -80;
+    }
+
+    setActiveIndex(newIndex);
+    setOpacity(newOpacity);
+    setTranslateX(newTranslateX);
+  });
+
+  const section = sections[activeIndex];
 
   return (
-    <section ref={containerRef} className="relative h-[250vh]">
-      <div className="sticky top-0 h-[100dvh] overflow-hidden flex items-center justify-center">
+    <section
+      ref={containerRef}
+      style={{ height: "250vh", position: "relative" }}
+    >
+      <div
+        style={{
+          height: "100dvh",
+          position: "sticky",
+          top: 0,
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         {/* Looping video background */}
-        {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
         >
           <source src="/grid-scroll.mp4" type="video/mp4" />
         </video>
 
         {/* Radial mask — desktop */}
         <div
-          className="absolute inset-0 pointer-events-none hidden md:block"
+          className="hidden md:block"
           style={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
             background:
               "radial-gradient(ellipse 65% 55% at 50% 50%, transparent 25%, #09090b 78%)",
           }}
         />
         {/* Radial mask — mobile */}
         <div
-          className="absolute inset-0 pointer-events-none md:hidden"
+          className="md:hidden"
           style={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
             background:
               "radial-gradient(ellipse 85% 45% at 50% 50%, transparent 10%, #09090b 60%)",
           }}
         />
 
         {/* Top/bottom fade */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b] opacity-70" />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
+            background:
+              "linear-gradient(to bottom, #09090b 0%, transparent 30%, transparent 70%, #09090b 100%)",
+            opacity: 0.7,
+          }}
+        />
 
-        {/* Text */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 w-full">
-          <div className="flex items-center justify-center min-h-[100dvh]">
-            <div className="relative w-full max-w-2xl mx-auto text-center">
-              {sections.map((section, i) => (
-                <motion.div
-                  key={section.label}
-                  style={{
-                    opacity: textSections[i].opacity,
-                    y: textSections[i].y,
-                  }}
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-4 md:gap-5 px-4"
-                >
-                  <span className="text-xs font-medium tracking-widest uppercase text-sky-300/80">
-                    {section.label}
-                  </span>
-                  <h3 className="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tighter leading-tight text-zinc-50">
-                    {section.heading}
-                  </h3>
-                  <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[48ch]">
-                    {section.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+        {/* Single active text block */}
+        <div
+          style={{
+            position: "relative",
+            zIndex: 10,
+            opacity,
+            transform: `translateX(${translateX}px)`,
+            transition: "opacity 0.2s ease-out, transform 0.2s ease-out",
+            maxWidth: "42rem",
+            padding: "0 1.5rem",
+            textAlign: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.75rem",
+              fontWeight: 500,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "rgba(125, 211, 252, 0.8)",
+            }}
+          >
+            {section.label}
+          </span>
+          <h3
+            style={{
+              fontSize: "clamp(1.5rem, 5vw, 3rem)",
+              fontWeight: 600,
+              letterSpacing: "-0.04em",
+              lineHeight: 1.15,
+              color: "#fafafa",
+              margin: 0,
+            }}
+          >
+            {section.heading}
+          </h3>
+          <p
+            style={{
+              fontSize: "clamp(0.875rem, 2vw, 1rem)",
+              color: "#a1a1aa",
+              lineHeight: 1.7,
+              maxWidth: "48ch",
+              margin: 0,
+            }}
+          >
+            {section.description}
+          </p>
         </div>
       </div>
     </section>
