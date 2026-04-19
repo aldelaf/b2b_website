@@ -39,28 +39,26 @@ export default function ScrollSequence() {
     offset: ["start start", "end end"],
   });
 
-  // 200vh = 1 viewport of scroll. 3 sections split evenly.
-  // Each: 3% fade in, 24% hold, 3% fade out, 3% gap
-  const text0Opacity = useTransform(scrollYProgress, [0.0, 0.03, 0.27, 0.30], [0, 1, 1, 0]);
-  const text0Y = useTransform(scrollYProgress, [0.0, 0.03, 0.27, 0.30], [50, 0, 0, -50]);
-  const text0Scale = useTransform(scrollYProgress, [0.0, 0.03, 0.27, 0.30], [0.96, 1, 1, 0.96]);
+  // Text 1: already visible on arrival, fades out at ~40%
+  const t0Opacity = useTransform(scrollYProgress, [0, 0.28, 0.35], [1, 1, 0]);
+  const t0Y = useTransform(scrollYProgress, [0, 0.28, 0.35], [0, 0, -50]);
 
-  const text1Opacity = useTransform(scrollYProgress, [0.33, 0.36, 0.60, 0.63], [0, 1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0.33, 0.36, 0.60, 0.63], [50, 0, 0, -50]);
-  const text1Scale = useTransform(scrollYProgress, [0.33, 0.36, 0.60, 0.63], [0.96, 1, 1, 0.96]);
+  // Text 2: fades in right as text 1 leaves, holds, fades out
+  const t1Opacity = useTransform(scrollYProgress, [0.35, 0.42, 0.62, 0.69], [0, 1, 1, 0]);
+  const t1Y = useTransform(scrollYProgress, [0.35, 0.42, 0.62, 0.69], [50, 0, 0, -50]);
 
-  const text2Opacity = useTransform(scrollYProgress, [0.66, 0.69, 0.93, 0.96], [0, 1, 1, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.66, 0.69, 0.93, 0.96], [50, 0, 0, -50]);
-  const text2Scale = useTransform(scrollYProgress, [0.66, 0.69, 0.93, 0.96], [0.96, 1, 1, 0.96]);
+  // Text 3: fades in right as text 2 leaves, holds until end
+  const t2Opacity = useTransform(scrollYProgress, [0.69, 0.76, 1.0], [0, 1, 1]);
+  const t2Y = useTransform(scrollYProgress, [0.69, 0.76, 1.0], [50, 0, 0]);
 
   const textSections = [
-    { opacity: text0Opacity, y: text0Y, scale: text0Scale },
-    { opacity: text1Opacity, y: text1Y, scale: text1Scale },
-    { opacity: text2Opacity, y: text2Y, scale: text2Scale },
+    { opacity: t0Opacity, y: t0Y },
+    { opacity: t1Opacity, y: t1Y },
+    { opacity: t2Opacity, y: t2Y },
   ];
 
   return (
-    <section ref={containerRef} className="relative h-[200vh]">
+    <section ref={containerRef} className="relative h-[250vh]">
       <div className="sticky top-0 h-[100dvh] overflow-hidden flex items-center justify-center">
         {/* Looping video background */}
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
@@ -95,7 +93,7 @@ export default function ScrollSequence() {
         {/* Top/bottom fade */}
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b] opacity-70" />
 
-        {/* Scroll-driven text — overlapping transitions */}
+        {/* Text */}
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 w-full">
           <div className="flex items-center justify-center min-h-[100dvh]">
             <div className="relative w-full max-w-2xl mx-auto text-center">
@@ -105,7 +103,6 @@ export default function ScrollSequence() {
                   style={{
                     opacity: textSections[i].opacity,
                     y: textSections[i].y,
-                    scale: textSections[i].scale,
                   }}
                   className="absolute inset-0 flex flex-col items-center justify-center gap-4 md:gap-5 px-4"
                 >
