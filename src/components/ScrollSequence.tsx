@@ -39,19 +39,19 @@ export default function ScrollSequence() {
     offset: ["start start", "end end"],
   });
 
-  // Each section: quick fade in → long hold → quick fade out
-  // Transitions are short (4%), holds are generous (18%), gaps between are small (3%)
-  const text0Opacity = useTransform(scrollYProgress, [0.0, 0.04, 0.26, 0.30], [0, 1, 1, 0]);
-  const text0Y = useTransform(scrollYProgress, [0.0, 0.04, 0.26, 0.30], [60, 0, 0, -60]);
-  const text0Scale = useTransform(scrollYProgress, [0.0, 0.04, 0.26, 0.30], [0.96, 1, 1, 0.96]);
+  // 200vh = 1 viewport of scroll. 3 sections split evenly.
+  // Each: 3% fade in, 24% hold, 3% fade out, 3% gap
+  const text0Opacity = useTransform(scrollYProgress, [0.0, 0.03, 0.27, 0.30], [0, 1, 1, 0]);
+  const text0Y = useTransform(scrollYProgress, [0.0, 0.03, 0.27, 0.30], [50, 0, 0, -50]);
+  const text0Scale = useTransform(scrollYProgress, [0.0, 0.03, 0.27, 0.30], [0.96, 1, 1, 0.96]);
 
-  const text1Opacity = useTransform(scrollYProgress, [0.33, 0.37, 0.59, 0.63], [0, 1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0.33, 0.37, 0.59, 0.63], [60, 0, 0, -60]);
-  const text1Scale = useTransform(scrollYProgress, [0.33, 0.37, 0.59, 0.63], [0.96, 1, 1, 0.96]);
+  const text1Opacity = useTransform(scrollYProgress, [0.33, 0.36, 0.60, 0.63], [0, 1, 1, 0]);
+  const text1Y = useTransform(scrollYProgress, [0.33, 0.36, 0.60, 0.63], [50, 0, 0, -50]);
+  const text1Scale = useTransform(scrollYProgress, [0.33, 0.36, 0.60, 0.63], [0.96, 1, 1, 0.96]);
 
-  const text2Opacity = useTransform(scrollYProgress, [0.66, 0.70, 0.92, 0.96], [0, 1, 1, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.66, 0.70, 0.92, 0.96], [60, 0, 0, -60]);
-  const text2Scale = useTransform(scrollYProgress, [0.66, 0.70, 0.92, 0.96], [0.96, 1, 1, 0.96]);
+  const text2Opacity = useTransform(scrollYProgress, [0.66, 0.69, 0.93, 0.96], [0, 1, 1, 0]);
+  const text2Y = useTransform(scrollYProgress, [0.66, 0.69, 0.93, 0.96], [50, 0, 0, -50]);
+  const text2Scale = useTransform(scrollYProgress, [0.66, 0.69, 0.93, 0.96], [0.96, 1, 1, 0.96]);
 
   const textSections = [
     { opacity: text0Opacity, y: text0Y, scale: text0Scale },
@@ -60,7 +60,7 @@ export default function ScrollSequence() {
   ];
 
   return (
-    <section ref={containerRef} className="relative h-[300vh]">
+    <section ref={containerRef} className="relative h-[200vh]">
       <div className="sticky top-0 h-[100dvh] overflow-hidden flex items-center justify-center">
         {/* Looping video background */}
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
