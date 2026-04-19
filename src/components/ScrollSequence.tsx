@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const sections = [
@@ -26,6 +26,13 @@ const sections = [
 
 export default function ScrollSequence() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5;
+    }
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -56,7 +63,9 @@ export default function ScrollSequence() {
     <section ref={containerRef} className="relative h-[250vh]">
       <div className="sticky top-0 h-[100dvh] overflow-hidden flex items-center justify-center">
         {/* Looping video background */}
+        {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
