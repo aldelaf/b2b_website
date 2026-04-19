@@ -53,7 +53,7 @@ export default function ScrollSequence() {
   ];
 
   return (
-    <section ref={containerRef} className="relative h-[400vh]">
+    <section ref={containerRef} className="relative h-[250vh]">
       <div className="sticky top-0 h-[100dvh] overflow-hidden flex items-center justify-center">
         {/* Looping video background */}
         <video
