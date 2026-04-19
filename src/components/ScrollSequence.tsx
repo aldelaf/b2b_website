@@ -32,19 +32,24 @@ export default function ScrollSequence() {
     offset: ["start start", "end end"],
   });
 
-  const text0Opacity = useTransform(scrollYProgress, [0.0, 0.08, 0.25, 0.30], [0, 1, 1, 0]);
-  const text0Y = useTransform(scrollYProgress, [0.0, 0.08, 0.25, 0.30], [60, 0, 0, -60]);
+  // Overlapping ranges — one is still fading out while the next is already fading in
+  // Each section: rise from below → hold → drift up and out
+  const text0Opacity = useTransform(scrollYProgress, [0.0, 0.06, 0.24, 0.33], [0, 1, 1, 0]);
+  const text0Y = useTransform(scrollYProgress, [0.0, 0.06, 0.24, 0.33], [80, 0, 0, -80]);
+  const text0Scale = useTransform(scrollYProgress, [0.0, 0.06, 0.24, 0.33], [0.95, 1, 1, 0.95]);
 
-  const text1Opacity = useTransform(scrollYProgress, [0.33, 0.41, 0.58, 0.63], [0, 1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0.33, 0.41, 0.58, 0.63], [60, 0, 0, -60]);
+  const text1Opacity = useTransform(scrollYProgress, [0.30, 0.39, 0.57, 0.66], [0, 1, 1, 0]);
+  const text1Y = useTransform(scrollYProgress, [0.30, 0.39, 0.57, 0.66], [80, 0, 0, -80]);
+  const text1Scale = useTransform(scrollYProgress, [0.30, 0.39, 0.57, 0.66], [0.95, 1, 1, 0.95]);
 
-  const text2Opacity = useTransform(scrollYProgress, [0.66, 0.74, 0.91, 0.96], [0, 1, 1, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.66, 0.74, 0.91, 0.96], [60, 0, 0, -60]);
+  const text2Opacity = useTransform(scrollYProgress, [0.63, 0.72, 0.88, 0.97], [0, 1, 1, 0]);
+  const text2Y = useTransform(scrollYProgress, [0.63, 0.72, 0.88, 0.97], [80, 0, 0, -80]);
+  const text2Scale = useTransform(scrollYProgress, [0.63, 0.72, 0.88, 0.97], [0.95, 1, 1, 0.95]);
 
   const textSections = [
-    { opacity: text0Opacity, y: text0Y },
-    { opacity: text1Opacity, y: text1Y },
-    { opacity: text2Opacity, y: text2Y },
+    { opacity: text0Opacity, y: text0Y, scale: text0Scale },
+    { opacity: text1Opacity, y: text1Y, scale: text1Scale },
+    { opacity: text2Opacity, y: text2Y, scale: text2Scale },
   ];
 
   return (
@@ -69,7 +74,7 @@ export default function ScrollSequence() {
               "radial-gradient(ellipse 65% 55% at 50% 50%, transparent 25%, #09090b 78%)",
           }}
         />
-        {/* Radial mask — mobile (tighter) */}
+        {/* Radial mask — mobile */}
         <div
           className="absolute inset-0 pointer-events-none md:hidden"
           style={{
@@ -81,7 +86,7 @@ export default function ScrollSequence() {
         {/* Top/bottom fade */}
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b] opacity-70" />
 
-        {/* Scroll-driven text */}
+        {/* Scroll-driven text — overlapping transitions */}
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 w-full">
           <div className="flex items-center justify-center min-h-[100dvh]">
             <div className="relative w-full max-w-2xl mx-auto text-center">
@@ -91,6 +96,7 @@ export default function ScrollSequence() {
                   style={{
                     opacity: textSections[i].opacity,
                     y: textSections[i].y,
+                    scale: textSections[i].scale,
                   }}
                   className="absolute inset-0 flex flex-col items-center justify-center gap-4 md:gap-5 px-4"
                 >
