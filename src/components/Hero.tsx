@@ -31,15 +31,23 @@ export default function Hero() {
         <source src="/orb-landing.mp4" type="video/mp4" />
       </video>
 
+      {/* Tighter mask on mobile, wider on desktop */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
             "radial-gradient(ellipse 60% 50% at 50% 50%, transparent 20%, #09090b 75%)",
         }}
       />
+      <div
+        className="absolute inset-0 pointer-events-none md:hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 40% at 50% 50%, transparent 10%, #09090b 65%)",
+        }}
+      />
 
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b] opacity-60" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b] opacity-80 md:opacity-60" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 w-full">
         <div className="flex flex-col items-center text-center gap-8 max-w-3xl mx-auto">
