@@ -62,7 +62,7 @@ export default function CalEmbed() {
 export function openCalModal() {
   if (typeof window !== "undefined" && (window as any).Cal) {
     (window as any).Cal("modal", {
-      calLink: "alvaro-de-la-fuente-dp0fx0/30min",
+      calLink: "alvaro-de-la-fuente-dp0fx0/cork-fountain-diagnostic",
       config: {
         layout: "month_view",
         theme: "dark",

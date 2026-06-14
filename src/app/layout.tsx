@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cork Fountain — AI Automations for B2B Ecommerce",
+  title: "Cork Fountain — Amazon Competitive Intelligence",
   description:
-    "We build custom AI systems that automate operations, reduce costs, and scale revenue for B2B ecommerce companies.",
+    "ASIN-level competitor monitoring for Amazon brands. Built by a former Amazon EU Senior Brand Specialist. Walk into Prime Day, Black Friday, and Cyber Monday with a written competitive read — not reactive scrambling.",
 };
 
 export default function RootLayout({

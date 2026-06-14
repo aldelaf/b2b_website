@@ -43,7 +43,7 @@ export default function Process() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-xs font-medium tracking-widest uppercase text-sky-300 mb-4"
+              className="text-xs font-medium tracking-widest uppercase text-amber-400 mb-4"
             >
               How It Works
             </motion.p>
@@ -94,7 +94,7 @@ export default function Process() {
                   className="group border-t border-zinc-800/60 py-10 md:py-12"
                 >
                   <div className="flex items-start gap-6 md:gap-10">
-                    <span className="text-4xl md:text-5xl font-semibold text-zinc-800 group-hover:text-sky-400/30 transition-colors duration-500 tabular-nums font-mono leading-none pt-1">
+                    <span className="text-4xl md:text-5xl font-semibold text-zinc-800 group-hover:text-amber-500/30 transition-colors duration-500 tabular-nums font-mono leading-none pt-1">
                       {step.number}
                     </span>
                     <div className="flex-1">

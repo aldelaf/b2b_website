@@ -28,26 +28,25 @@ export default function Hero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/orb-landing.mp4" type="video/mp4" />
+        <source src="/hero-grid.mp4" type="video/mp4" />
       </video>
 
-      {/* Tighter mask on mobile, wider on desktop */}
       <div
         className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, transparent 20%, #09090b 75%)",
+            "radial-gradient(ellipse 60% 50% at 50% 50%, transparent 20%, #0A1628 75%)",
         }}
       />
       <div
         className="absolute inset-0 pointer-events-none md:hidden"
         style={{
           background:
-            "radial-gradient(ellipse 80% 40% at 50% 50%, transparent 10%, #09090b 65%)",
+            "radial-gradient(ellipse 80% 40% at 50% 50%, transparent 10%, #0A1628 65%)",
         }}
       />
 
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b] opacity-80 md:opacity-60" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0A1628] via-transparent to-[#0A1628] opacity-80 md:opacity-60" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 w-full">
         <div className="flex flex-col items-center text-center gap-8 max-w-3xl mx-auto">
@@ -56,10 +55,10 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-sky-400/20 bg-sky-400/10 text-sky-300 text-xs font-medium tracking-wide uppercase"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-400 text-xs font-medium tracking-wide uppercase"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-            AI-Powered Operations
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            Amazon Competitive Intelligence
           </motion.div>
 
           <motion.h1
@@ -69,11 +68,11 @@ export default function Hero() {
             animate="visible"
             className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter leading-none text-zinc-50"
           >
-            Automate your
+            Win Prime Day
             <br />
-            B2B ecommerce
+            before Prime Day
             <br />
-            <span className="text-sky-300">from order to delivery.</span>
+            <span className="text-amber-400">starts.</span>
           </motion.h1>
 
           <motion.p
@@ -81,10 +80,12 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-[52ch]"
+            className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-[58ch]"
           >
-            We build custom AI systems that cut manual work by 70%, reduce errors,
-            and let your team focus on growth instead of operations.
+            ASIN-level competitor monitoring for Amazon brands. Built by a
+            former Amazon EU Senior Brand Specialist — so your team walks into
+            peak events with a written competitive read, not reactive
+            scrambling.
           </motion.p>
 
           <motion.div
@@ -92,25 +93,22 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col items-center gap-3"
           >
             <button
               onClick={openCalModal}
-              className="group inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-zinc-950 bg-sky-300 rounded-full hover:bg-sky-200 transition-all duration-300 active:scale-[0.98] cursor-pointer"
+              className="group inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-all duration-300 active:scale-[0.98] cursor-pointer"
             >
-              Book a Discovery Call
+              Book a 20-minute diagnostic
               <ArrowRight
                 size={16}
                 weight="bold"
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
             </button>
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center h-12 px-7 text-sm font-medium text-zinc-400 border border-zinc-800 rounded-full hover:border-zinc-700 hover:text-zinc-200 transition-all duration-300 active:scale-[0.98]"
-            >
-              See What We Automate
-            </a>
+            <span className="text-xs text-zinc-500">
+              No pitch. Real diagnostic on your specific competitive set.
+            </span>
           </motion.div>
         </div>
       </div>

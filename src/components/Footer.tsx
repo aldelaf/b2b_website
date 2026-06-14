@@ -8,7 +8,7 @@ export default function Footer() {
               Cork Fountain
             </div>
             <div className="text-sm text-zinc-600">
-              AI automations for B2B ecommerce operations.
+              Amazon competitive intelligence for Tier 1 brands.
             </div>
           </div>
           <div className="flex items-center gap-6">

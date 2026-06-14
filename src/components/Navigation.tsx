@@ -6,17 +6,17 @@ import { List, X } from "@phosphor-icons/react";
 import { openCalModal } from "./CalEmbed";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Results", href: "#results" },
-  { label: "Contact", href: "#contact" },
+  { label: "Problem", href: "#problem" },
+  { label: "Included", href: "#included" },
+  { label: "Fit", href: "#audience" },
+  { label: "About", href: "#about" },
 ];
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-[#09090b]/80 backdrop-blur-xl border-b border-zinc-800/40">
+    <nav className="fixed top-0 left-0 right-0 z-40 bg-[#0A1628]/80 backdrop-blur-xl border-b border-zinc-800/40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between h-16">
         <a href="#" className="text-lg font-semibold tracking-tight text-zinc-100">
           Cork Fountain
@@ -34,9 +34,9 @@ export default function Navigation() {
           ))}
           <button
             onClick={openCalModal}
-            className="inline-flex items-center justify-center h-10 px-5 text-sm font-medium text-zinc-950 bg-sky-300 rounded-full hover:bg-sky-200 transition-colors duration-300 active:scale-[0.98] cursor-pointer"
+            className="inline-flex items-center justify-center h-10 px-5 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-colors duration-300 active:scale-[0.98] cursor-pointer"
           >
-            Book a Call
+            Book diagnostic
           </button>
         </div>
 
@@ -56,7 +56,7 @@ export default function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ type: "spring" as const, stiffness: 300, damping: 30 }}
-            className="md:hidden overflow-hidden border-b border-zinc-800/40 bg-[#09090b]/95 backdrop-blur-xl"
+            className="md:hidden overflow-hidden border-b border-zinc-800/40 bg-[#0A1628]/95 backdrop-blur-xl"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -74,9 +74,9 @@ export default function Navigation() {
                   setMobileOpen(false);
                   openCalModal();
                 }}
-                className="inline-flex items-center justify-center h-12 px-6 text-sm font-medium text-zinc-950 bg-sky-300 rounded-full mt-2 cursor-pointer"
+                className="inline-flex items-center justify-center h-12 px-6 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full mt-2 cursor-pointer"
               >
-                Book a Call
+                Book diagnostic
               </button>
             </div>
           </motion.div>

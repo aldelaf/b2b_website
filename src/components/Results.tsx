@@ -1,137 +1,126 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Check, X } from "@phosphor-icons/react";
 
-const metrics = [
-  {
-    value: "70%",
-    label: "Reduction in manual processing time",
-    context: "Across order management and fulfillment workflows",
-  },
-  {
-    value: "94%",
-    label: "Fewer data entry errors",
-    context: "Compared to manual order processing baselines",
-  },
-  {
-    value: "3.2x",
-    label: "More orders processed per team member",
-    context: "Without additional headcount or overtime",
-  },
-  {
-    value: "< 2s",
-    label: "Average order routing time",
-    context: "From receipt to warehouse assignment",
-  },
+const isFor = [
+  "Amazon brands doing $5M-$50M GMV",
+  "Brand Manager or Director of Amazon owning competitive strategy",
+  "Teams feeling the visibility gap on direct competitors",
+  "Brands that lose share or scramble during peak events",
 ];
 
-const testimonials = [
-  {
-    quote:
-      "We went from 4 people managing orders full-time to one person overseeing the AI. The system handles 3,000 orders daily without breaking a sweat.",
-    name: "Rafael Montoya",
-    role: "COO",
-    company: "Argus Supply Group",
-  },
-  {
-    quote:
-      "The invoice automation alone saved us 28 hours per week. Cork Fountain understood our pricing model better than the last three platforms we tried.",
-    name: "Linnea Svensson",
-    role: "Head of Operations",
-    company: "Boreal Distribution",
-  },
+const isNotFor = [
+  "Sub-$1M sellers — the math doesn't work for either side",
+  "Category-level monitoring needs (we don't replace Helium 10 or Sellerboard)",
+  "Teams looking for keyword research or PPC management",
+  "Brands without a dedicated Amazon owner on the team",
 ];
 
 export default function Results() {
   return (
-    <section id="results" className="py-28 md:py-36">
+    <section id="audience" className="py-28 md:py-36">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="mb-16 max-w-2xl">
+        <div className="mb-14 md:mb-16 max-w-2xl">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-xs font-medium tracking-widest uppercase text-sky-300 mb-4"
+            className="text-xs font-medium tracking-widest uppercase text-amber-400 mb-4"
           >
-            Proven Impact
+            Fit
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="text-3xl md:text-5xl font-semibold tracking-tighter leading-none text-zinc-50"
+            className="text-3xl md:text-5xl font-semibold tracking-tighter leading-none text-zinc-50 mb-5"
           >
-            Numbers your CFO
-            <br />
-            will actually care about.
+            Who this works for.
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: 0.1,
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+            }}
+            className="text-base md:text-lg text-zinc-500 leading-relaxed max-w-[60ch]"
+          >
+            Built specifically for Amazon brands doing $5M-$50M GMV with a
+            Brand Manager or Director of Amazon owning competitive strategy.
+            If your team is feeling the visibility gap on direct competitors —
+            especially during peak events — this is the system. We operate at
+            a different layer than category dashboards: focused on direct
+            ASIN-level competitive dynamics.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 border-t border-zinc-800/60 mb-24">
-          {metrics.map((metric, i) => (
-            <motion.div
-              key={metric.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: i * 0.08,
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-              }}
-              className="py-8 md:py-10 border-b md:border-b-0 md:border-r last:border-r-0 border-zinc-800/60 md:pr-8 md:pl-8 first:md:pl-0"
-            >
-              <div className="text-3xl md:text-4xl font-semibold text-sky-300 tracking-tight font-mono mb-2">
-                {metric.value}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="bg-zinc-900/40 rounded-[1.5rem] border border-zinc-800/50 p-8 md:p-10"
+          >
+            <div className="flex items-center gap-2.5 mb-7">
+              <div className="w-7 h-7 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                <Check size={14} weight="bold" className="text-amber-400" />
               </div>
-              <div className="text-sm font-medium text-zinc-200 mb-1">
-                {metric.label}
-              </div>
-              <div className="text-xs text-zinc-600 leading-relaxed">
-                {metric.context}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              <span className="text-xs font-medium tracking-widest uppercase text-amber-400">
+                Who this is for
+              </span>
+            </div>
+            <ul className="space-y-4">
+              {isFor.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-base text-zinc-300 leading-relaxed"
+                >
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-amber-500/70 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: i * 0.1,
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-              }}
-              className={`bg-zinc-900/40 rounded-[1.5rem] border border-zinc-800/50 p-8 md:p-10 ${
-                i === 1 ? "md:mt-12" : ""
-              }`}
-            >
-              <p className="text-base md:text-lg text-zinc-400 leading-relaxed mb-8">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-zinc-800 border border-zinc-700/50 flex items-center justify-center text-sm font-semibold text-zinc-400">
-                  {t.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-zinc-200">{t.name}</div>
-                  <div className="text-xs text-zinc-600">
-                    {t.role}, {t.company}
-                  </div>
-                </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: 0.1,
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+            }}
+            className="bg-zinc-900/40 rounded-[1.5rem] border border-zinc-800/50 p-8 md:p-10 md:mt-12"
+          >
+            <div className="flex items-center gap-2.5 mb-7">
+              <div className="w-7 h-7 rounded-full bg-zinc-800/60 border border-zinc-700/40 flex items-center justify-center">
+                <X size={14} weight="bold" className="text-zinc-500" />
               </div>
-            </motion.div>
-          ))}
+              <span className="text-xs font-medium tracking-widest uppercase text-zinc-500">
+                Who this isn&apos;t for
+              </span>
+            </div>
+            <ul className="space-y-4">
+              {isNotFor.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-base text-zinc-500 leading-relaxed"
+                >
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
       </div>
     </section>
