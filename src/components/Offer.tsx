@@ -114,9 +114,9 @@ export default function Offer() {
                 <span className="text-base font-semibold text-zinc-100">30-day money-back guarantee</span>
               </div>
               <p className="text-sm text-zinc-400 leading-relaxed">
-                If your first 30 days don&apos;t surface at least 10 quantified
-                competitive moves worth acting on, you get 100% of your money
-                back. No risk to find out what you&apos;re missing.
+                If your first 30 days don&apos;t surface at least 3 specific,
+                quantified competitive moves worth acting on, you get 100% of
+                your money back. No risk to find out what you&apos;re missing.
               </p>
             </div>
 
