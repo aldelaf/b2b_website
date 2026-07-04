@@ -21,15 +21,14 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center pt-16 overflow-hidden">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
+      {/* Static frame of the homepage light-grid — same palette, no heavy video
+          on this page (the moving-light animation only ships on the homepage). */}
+      <img
+        src="/frames/frame-030.jpg"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/hero-grid.mp4" type="video/mp4" />
-      </video>
+      />
 
       <div
         className="absolute inset-0 pointer-events-none hidden md:block"
@@ -57,7 +56,7 @@ export default function Hero() {
             animate="visible"
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-400 text-xs font-medium tracking-wide uppercase"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
             Amazon Competitive Intelligence
           </motion.div>
 
