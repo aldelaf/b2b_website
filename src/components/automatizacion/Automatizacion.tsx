@@ -225,20 +225,23 @@ export default function Automatizacion() {
                 {AUDIT_STEPS.map((s, i) => {
                   const Ico = s.icon;
                   return (
-                    <Reveal key={s.title} delay={0.12 + i * 0.06}>
-                      <li className="grid grid-cols-[auto_1fr] gap-5">
-                        <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-800/70 text-amber-400">
-                          <Ico size={22} weight="duotone" />
-                        </div>
-                        <div>
-                          <h3 className="text-base font-semibold text-zinc-100 mb-1.5">
-                            {s.title}
-                          </h3>
-                          <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[54ch]">
-                            {s.body}
-                          </p>
-                        </div>
-                      </li>
+                    <Reveal
+                      as="li"
+                      key={s.title}
+                      delay={0.12 + i * 0.06}
+                      className="grid grid-cols-[auto_1fr] gap-5"
+                    >
+                      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-800/70 text-amber-400">
+                        <Ico size={22} weight="duotone" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-semibold text-zinc-100 mb-1.5">
+                          {s.title}
+                        </h3>
+                        <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[54ch]">
+                          {s.body}
+                        </p>
+                      </div>
                     </Reveal>
                   );
                 })}

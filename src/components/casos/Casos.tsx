@@ -120,7 +120,7 @@ export default function Casos() {
                   <h2 className="text-base font-semibold text-zinc-100 leading-snug mb-4">
                     {c.title}
                   </h2>
-                  <span className="inline-flex items-center gap-1.5 text-sm text-zinc-500 group-hover:text-amber-400 transition-colors mt-auto">
+                  <span className="inline-flex items-center gap-1.5 text-sm text-zinc-400 group-hover:text-amber-400 transition-colors mt-auto">
                     Ver caso
                     <ArrowDown size={14} weight="bold" />
                   </span>

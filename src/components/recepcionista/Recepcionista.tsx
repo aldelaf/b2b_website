@@ -189,23 +189,26 @@ export default function Recepcionista() {
                 {STEPS.map((s, i) => {
                   const Ico = s.icon;
                   return (
-                    <Reveal key={s.title} delay={0.1 + i * 0.06}>
-                      <li className="grid grid-cols-[auto_1fr] gap-5 items-start">
-                        <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-800/70 text-amber-400">
-                          <Ico size={22} weight="duotone" />
-                          <span className="absolute -top-1.5 -left-1.5 flex items-center justify-center w-5 h-5 rounded-full bg-amber-400 text-zinc-950 text-[0.65rem] font-bold">
-                            {i + 1}
-                          </span>
-                        </div>
-                        <div>
-                          <h3 className="text-base font-semibold text-zinc-100 mb-1.5">
-                            {s.title}
-                          </h3>
-                          <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[48ch]">
-                            {s.body}
-                          </p>
-                        </div>
-                      </li>
+                    <Reveal
+                      as="li"
+                      key={s.title}
+                      delay={0.1 + i * 0.06}
+                      className="grid grid-cols-[auto_1fr] gap-5 items-start"
+                    >
+                      <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-800/70 text-amber-400">
+                        <Ico size={22} weight="duotone" />
+                        <span className="absolute -top-1.5 -left-1.5 flex items-center justify-center w-5 h-5 rounded-full bg-amber-400 text-zinc-950 text-[0.65rem] font-bold">
+                          {i + 1}
+                        </span>
+                      </div>
+                      <div>
+                        <h3 className="text-base font-semibold text-zinc-100 mb-1.5">
+                          {s.title}
+                        </h3>
+                        <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-[48ch]">
+                          {s.body}
+                        </p>
+                      </div>
                     </Reveal>
                   );
                 })}

@@ -5,12 +5,12 @@ import { NAV_ITEMS_ES } from "@/components/site/nav-config";
 import Casos from "@/components/casos/Casos";
 
 export const metadata: Metadata = {
-  title: "Casos — Cork Fountain",
+  title: "Casos · Cork Fountain",
   description:
     "Sistemas de automatización con IA que ya funcionan para clientes en Países Bajos, Estados Unidos y España.",
   alternates: { canonical: "/casos" },
   openGraph: {
-    title: "Casos — Cork Fountain",
+    title: "Casos · Cork Fountain",
     description:
       "Sistemas de automatización con IA que ya funcionan para clientes en tres países.",
     url: "/casos",

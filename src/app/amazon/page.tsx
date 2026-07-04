@@ -13,12 +13,12 @@ import CTA from "@/components/CTA";
 import CorkFountainStrip from "@/components/CorkFountainStrip";
 
 export const metadata: Metadata = {
-  title: "Amazon Competitive Intelligence — Cork Fountain",
+  title: "Amazon Competitive Intelligence · Cork Fountain",
   description:
     "ASIN-level competitor monitoring for Amazon brands. Built by a former Amazon EU Senior Brand Specialist. Walk into peak events with a written competitive read, not reactive scrambling.",
   alternates: { canonical: "/amazon" },
   openGraph: {
-    title: "Amazon Competitive Intelligence — Cork Fountain",
+    title: "Amazon Competitive Intelligence · Cork Fountain",
     description:
       "ASIN-level competitor monitoring for Amazon brands, built by a former Amazon EU Senior Brand Specialist.",
     url: "/amazon",

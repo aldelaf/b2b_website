@@ -11,20 +11,26 @@ export default function Reveal({
   className,
   delay = 0,
   y = 10,
+  as = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   y?: number;
+  /** Render as a different element so list semantics stay valid (e.g. "li"). */
+  as?: "div" | "li";
 }) {
   const reduce = useReducedMotion();
 
   if (reduce) {
-    return <div className={className}>{children}</div>;
+    const Tag = as;
+    return <Tag className={className}>{children}</Tag>;
   }
 
+  const M = as === "li" ? motion.li : motion.div;
+
   return (
-    <motion.div
+    <M
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -32,6 +38,6 @@ export default function Reveal({
       transition={{ duration: 0.42, ease: "easeOut", delay }}
     >
       {children}
-    </motion.div>
+    </M>
   );
 }

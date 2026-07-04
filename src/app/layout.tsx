@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://corkfountain.com"),
-  title: "Cork Fountain — Automatización con IA para empresas",
+  title: "Cork Fountain · Automatización con IA para empresas",
   description:
     "Diseñamos y construimos sistemas de automatización con IA para empresas. Procesos concretos, horas recuperadas, resultados medibles.",
   openGraph: {

@@ -41,13 +41,13 @@ export default function SiteFooter({ lang = "es" }: { lang?: "es" | "en" }) {
             <div className="text-base font-semibold text-zinc-200 tracking-tight mb-2">
               Cork Fountain
             </div>
-            <p className="text-sm text-zinc-500 max-w-[38ch] leading-relaxed">
+            <p className="text-sm text-zinc-400 max-w-[38ch] leading-relaxed">
               {t.descriptor}
             </p>
           </div>
 
           <div className="md:col-span-3">
-            <div className="text-xs font-medium tracking-widest uppercase text-zinc-600 mb-4">
+            <div className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-4">
               {t.offers}
             </div>
             <ul className="flex flex-col gap-2.5">
@@ -87,7 +87,7 @@ export default function SiteFooter({ lang = "es" }: { lang?: "es" | "en" }) {
           </div>
 
           <div className="md:col-span-2">
-            <div className="text-xs font-medium tracking-widest uppercase text-zinc-600 mb-4">
+            <div className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-4">
               {t.legal}
             </div>
             <ul className="flex flex-col gap-2.5">
@@ -111,7 +111,7 @@ export default function SiteFooter({ lang = "es" }: { lang?: "es" | "en" }) {
           </div>
 
           <div className="md:col-span-2">
-            <div className="text-xs font-medium tracking-widest uppercase text-zinc-600 mb-4">
+            <div className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-4">
               {t.contact}
             </div>
             {/* Placeholder — swap for the real address before launch. */}
@@ -121,7 +121,7 @@ export default function SiteFooter({ lang = "es" }: { lang?: "es" | "en" }) {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-zinc-900/80 text-sm text-zinc-600">
+        <div className="mt-12 pt-6 border-t border-zinc-900/80 text-sm text-zinc-400">
           © {year} Cork Fountain
         </div>
       </div>

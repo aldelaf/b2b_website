@@ -5,12 +5,12 @@ import { NAV_ITEMS_ES } from "@/components/site/nav-config";
 import Recepcionista from "@/components/recepcionista/Recepcionista";
 
 export const metadata: Metadata = {
-  title: "Recepcionista IA para salones y clínicas — Cork Fountain",
+  title: "Recepcionista IA para salones y clínicas · Cork Fountain",
   description:
     "Una recepcionista IA que responde WhatsApp e Instagram al momento, agenda citas y resuelve dudas 24/7. Sin permanencia.",
   alternates: { canonical: "/recepcionista" },
   openGraph: {
-    title: "Recepcionista IA para salones y clínicas — Cork Fountain",
+    title: "Recepcionista IA para salones y clínicas · Cork Fountain",
     description:
       "Responde WhatsApp e Instagram, agenda citas y resuelve dudas 24/7.",
     url: "/recepcionista",
