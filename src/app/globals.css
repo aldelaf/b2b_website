@@ -54,3 +54,36 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #2a3b56;
 }
+
+/* Reusable card hover: subtle lift + faint amber border-glow.
+   Applied across the homepage door cards and the /automatizacion vertical cards. */
+.card-hover {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 184, 46, 0.35);
+  box-shadow: 0 0 0 1px rgba(245, 184, 46, 0.12), 0 14px 40px -18px rgba(245, 184, 46, 0.25);
+}
+
+/* Respect users who ask for less motion: kill non-essential animation site-wide. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .card-hover {
+    transition: none;
+  }
+  .card-hover:hover {
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

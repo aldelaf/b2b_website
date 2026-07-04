@@ -13,9 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cork Fountain — Amazon Competitive Intelligence",
+  metadataBase: new URL("https://corkfountain.com"),
+  title: "Cork Fountain — Automatización con IA para empresas",
   description:
-    "ASIN-level competitor monitoring for Amazon brands. Built by a former Amazon EU Senior Brand Specialist. Walk into Prime Day, Black Friday, and Cyber Monday with a written competitive read — not reactive scrambling.",
+    "Diseñamos y construimos sistemas de automatización con IA para empresas. Procesos concretos, horas recuperadas, resultados medibles.",
+  openGraph: {
+    siteName: "Cork Fountain",
+    type: "website",
+    images: ["/og/default.svg"],
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body>{children}</body>

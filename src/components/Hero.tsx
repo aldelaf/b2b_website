@@ -96,7 +96,7 @@ export default function Hero() {
             className="flex flex-col items-center gap-3"
           >
             <button
-              onClick={openCalModal}
+              onClick={() => openCalModal()}
               className="group inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-all duration-300 active:scale-[0.98] cursor-pointer"
             >
               Book a 20-minute diagnostic

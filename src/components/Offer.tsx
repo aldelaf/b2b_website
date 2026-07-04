@@ -129,7 +129,7 @@ export default function Offer() {
             </div>
 
             <button
-              onClick={openCalModal}
+              onClick={() => openCalModal()}
               className="group inline-flex items-center justify-center gap-3 h-14 px-8 text-base font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-all duration-300 active:scale-[0.98] cursor-pointer"
             >
               Claim a founding spot

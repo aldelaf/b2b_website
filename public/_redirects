@@ -1,0 +1,11 @@
+# Netlify redirects for Cork Fountain.
+#
+# The old one-pager lived at "/". Campaign links that pointed at its section
+# anchors (e.g. /#offer, /#problem, /#about) are redirected to the matching
+# section on /amazon. URL hashes never reach the server, so that redirect is
+# done client-side in src/components/home/HomePage.tsx — it cannot live here.
+#
+# Path-level legacy aliases (if any campaign used a real path) go below.
+
+/home            /            301
+/index.html      /            301

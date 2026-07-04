@@ -68,7 +68,7 @@ export default function CTA() {
                   className="flex flex-col gap-4"
                 >
                   <button
-                    onClick={openCalModal}
+                    onClick={() => openCalModal()}
                     className="group inline-flex items-center justify-center gap-3 h-14 px-8 text-base font-medium text-amber-400 bg-zinc-950 rounded-full hover:bg-zinc-900 transition-all duration-300 active:scale-[0.98] cursor-pointer"
                   >
                     Book your diagnostic

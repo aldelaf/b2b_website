@@ -1,10 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
+// Cal.com booking modal, loaded lazily. The embed script is only fetched the
+// first time a visitor actually clicks a booking CTA, so it never weighs on
+// the initial page load of any route (keeps Lighthouse clean on the new pages).
 
-export default function CalEmbed() {
-  useEffect(() => {
-    // Load Cal.com embed script
+const DEFAULT_CAL_LINK = "alvaro-de-la-fuente-dp0fx0/cork-fountain-diagnostic";
+
+let initialized = false;
+
+function ensureCal() {
+  if (typeof window === "undefined") return;
+  const w = window as Window & { Cal?: any };
+
+  if (!w.Cal) {
     (function (C: Window & { Cal?: any }, A: string, L: string) {
       const p = function (a: any, ar: any) {
         a.q.push(ar);
@@ -41,9 +49,10 @@ export default function CalEmbed() {
           p(cal, args);
         };
     })(window, "https://app.cal.com/embed/embed.js", "init");
+  }
 
+  if (!initialized) {
     (window as any).Cal("init", { origin: "https://cal.com" });
-
     (window as any).Cal("ui", {
       theme: "dark",
       cssVarsPerTheme: {
@@ -54,19 +63,23 @@ export default function CalEmbed() {
       hideEventTypeDetails: false,
       layout: "month_view",
     });
-  }, []);
+    initialized = true;
+  }
+}
 
+// Kept for backward compatibility; no longer required to mount anywhere.
+export default function CalEmbed() {
   return null;
 }
 
-export function openCalModal() {
-  if (typeof window !== "undefined" && (window as any).Cal) {
-    (window as any).Cal("modal", {
-      calLink: "alvaro-de-la-fuente-dp0fx0/cork-fountain-diagnostic",
-      config: {
-        layout: "month_view",
-        theme: "dark",
-      },
-    });
-  }
+export function openCalModal(calLink: string = DEFAULT_CAL_LINK) {
+  if (typeof window === "undefined") return;
+  ensureCal();
+  (window as any).Cal("modal", {
+    calLink,
+    config: {
+      layout: "month_view",
+      theme: "dark",
+    },
+  });
 }

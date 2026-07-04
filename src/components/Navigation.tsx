@@ -33,7 +33,7 @@ export default function Navigation() {
             </a>
           ))}
           <button
-            onClick={openCalModal}
+            onClick={() => openCalModal()}
             className="inline-flex items-center justify-center h-10 px-5 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-colors duration-300 active:scale-[0.98] cursor-pointer"
           >
             Book diagnostic
