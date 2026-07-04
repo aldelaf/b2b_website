@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description:
       "Auditamos tus procesos, cuantificamos lo que te cuestan y construimos la automatización que los elimina.",
     url: "/automatizacion",
-    images: ["/og/automatizacion.svg"],
+    images: ["/og/automatizacion.png"],
   },
 };
 

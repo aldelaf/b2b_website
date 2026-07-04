@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       "ASIN-level competitor monitoring for Amazon brands, built by a former Amazon EU Senior Brand Specialist.",
     url: "/amazon",
-    images: ["/og/amazon.svg"],
+    images: ["/og/amazon.png"],
   },
 };
 

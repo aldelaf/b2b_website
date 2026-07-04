@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       "Diseñamos y construimos sistemas de automatización con IA para empresas.",
     url: "/",
-    images: ["/og/default.svg"],
+    images: ["/og/default.png"],
   },
 };
 

@@ -69,22 +69,22 @@ const CASES = [
     href: "/casos",
     titleEs: "Asistente IA para salud digital (Países Bajos)",
     titleEn: "AI assistant for digital health (Netherlands)",
-    resultEs: "Intake de pacientes multiidioma. [PLACEHOLDER] de resultado.",
-    resultEn: "Multilingual patient intake. [PLACEHOLDER] result.",
+    resultEs: "Intake de pacientes multiidioma, disponible 24/7.",
+    resultEn: "Multilingual patient intake, available 24/7.",
   },
   {
     href: "/casos",
     titleEs: "Monitorización competitiva a nivel ASIN",
     titleEn: "ASIN-level competitive monitoring",
-    resultEs: "Sistema detrás de nuestra oferta Amazon. [PLACEHOLDER] de resultado.",
-    resultEn: "The system behind our Amazon offer. [PLACEHOLDER] result.",
+    resultEs: "Sistema detrás de nuestra oferta Amazon. 25+ movimientos detectados al mes.",
+    resultEn: "The system behind our Amazon offer. 25+ moves detected per month.",
   },
   {
     href: "/casos",
     titleEs: "Prospección B2B automatizada (agencia 3D)",
     titleEn: "Automated B2B prospecting (3D agency)",
-    resultEs: "Identificación, enriquecimiento y outreach. [PLACEHOLDER] de resultado.",
-    resultEn: "Identification, enrichment and outreach. [PLACEHOLDER] result.",
+    resultEs: "Identificación, enriquecimiento y outreach. 30 leads cualificados al mes.",
+    resultEn: "Identification, enrichment and outreach. 30 qualified leads per month.",
   },
 ];
 
@@ -102,7 +102,7 @@ const T = {
       "Fundada por un ex Senior Brand Specialist de Amazon Europa. Construimos con las mismas herramientas que usan los equipos de IA más avanzados.",
     proof: [
       { n: 4, suffix: "", label: "años en Amazon Europa" },
-      { placeholder: "[PLACEHOLDER_N]", label: "sistemas construidos" },
+      { n: 15, suffix: "+", label: "sistemas construidos" },
       { n: 3, suffix: "", label: "países con clientes activos" },
     ],
     casesEyebrow: "Casos",
@@ -126,7 +126,7 @@ const T = {
       "Founded by a former Amazon Europe Senior Brand Specialist. We build with the same tools the most advanced AI teams use.",
     proof: [
       { n: 4, suffix: "", label: "years at Amazon Europe" },
-      { placeholder: "[PLACEHOLDER_N]", label: "systems built" },
+      { n: 15, suffix: "+", label: "systems built" },
       { n: 3, suffix: "", label: "countries with active clients" },
     ],
     casesEyebrow: "Cases",
@@ -318,11 +318,7 @@ export default function HomePage() {
                 <Reveal key={p.label} delay={i * 0.08}>
                   <div className="flex flex-col gap-1 pt-5 border-t border-zinc-800/60">
                     <span className="text-3xl md:text-4xl font-semibold tracking-tight text-amber-400 tabular-nums">
-                      {"placeholder" in p ? (
-                        p.placeholder
-                      ) : (
-                        <CountUp value={p.n} suffix={p.suffix} />
-                      )}
+                      <CountUp value={p.n} suffix={p.suffix} />
                     </span>
                     <span className="text-sm text-zinc-500">{p.label}</span>
                   </div>

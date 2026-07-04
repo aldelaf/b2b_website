@@ -13,7 +13,7 @@ export default function LegalPage({
   sections,
 }: {
   title: string;
-  updated: string;
+  updated?: string;
   sections: LegalSection[];
 }) {
   return (
@@ -25,17 +25,13 @@ export default function LegalPage({
             <h1 className="text-3xl md:text-5xl font-semibold tracking-tighter text-zinc-50 mb-3">
               {title}
             </h1>
-            <p className="text-sm text-zinc-600 mb-12">
-              Última actualización: {updated}
-            </p>
-
-            <div className="rounded-xl border border-dashed border-zinc-700/60 bg-zinc-900/20 px-5 py-4 mb-12">
-              <p className="text-sm text-zinc-500 leading-relaxed">
-                Texto pendiente de revisión legal. Sustituir cada{" "}
-                <span className="text-zinc-400">[PLACEHOLDER]</span> por el
-                contenido definitivo antes de la publicación.
+            {updated ? (
+              <p className="text-sm text-zinc-600 mb-12">
+                Última actualización: {updated}
               </p>
-            </div>
+            ) : (
+              <div className="mb-12" />
+            )}
 
             <div className="flex flex-col gap-10">
               {sections.map((s) => (

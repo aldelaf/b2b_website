@@ -3,7 +3,6 @@
 import {
   ArrowRight,
   InstagramLogo,
-  PlayCircle,
   Plugs,
   GraduationCap,
   CalendarCheck,
@@ -82,18 +81,14 @@ export default function Recepcionista() {
               </Reveal>
               <Reveal delay={0.15}>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  {/* Placeholder link — replace [DEMO_LINK] with the real demo URL */}
+                  {/* Demo-video CTA pending the recording — when the URL exists, add back
+                      an <a> with PlayCircle ("Ver una demo de 2 minutos") as the primary
+                      button and demote Instagram to the outlined secondary style. */}
                   <a
-                    href="[DEMO_LINK]"
+                    href="https://www.instagram.com/corkfountain/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-all duration-300 active:scale-[0.98]"
-                  >
-                    <PlayCircle size={18} weight="fill" />
-                    Ver una demo de 2 minutos
-                  </a>
-                  {/* Placeholder link — replace [IG_LINK] with the real Instagram URL */}
-                  <a
-                    href="[IG_LINK]"
-                    className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-zinc-200 border border-zinc-700/70 rounded-full hover:border-zinc-500 hover:text-zinc-50 transition-all duration-300"
                   >
                     <InstagramLogo size={18} weight="bold" />
                     Escríbenos por Instagram

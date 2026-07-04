@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description:
       "Responde WhatsApp e Instagram, agenda citas y resuelve dudas 24/7.",
     url: "/recepcionista",
-    images: ["/og/recepcionista.svg"],
+    images: ["/og/recepcionista.png"],
   },
 };
 

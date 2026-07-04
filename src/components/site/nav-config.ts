@@ -1,7 +1,6 @@
 import type { NavItem } from "./SiteNav";
 
-// Placeholder — replace with the real contact address before launch.
-export const CONTACT_EMAIL = "[CONTACT_EMAIL]";
+export const CONTACT_EMAIL = "alvaro@corkfountain.com";
 
 export const NAV_ITEMS_ES: NavItem[] = [
   { label: "Amazon", href: "/amazon" },

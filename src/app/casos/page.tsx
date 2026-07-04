@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description:
       "Sistemas de automatización con IA que ya funcionan para clientes en tres países.",
     url: "/casos",
-    images: ["/og/default.svg"],
+    images: ["/og/default.png"],
   },
 };
 

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "Cork Fountain",
     type: "website",
-    images: ["/og/default.svg"],
+    images: ["/og/default.png"],
   },
 };
 

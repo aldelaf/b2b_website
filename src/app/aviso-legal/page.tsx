@@ -12,27 +12,26 @@ export default function AvisoLegalPage() {
   return (
     <LegalPage
       title="Aviso legal"
-      updated="[PLACEHOLDER]"
       sections={[
         {
-          heading: "Titular",
-          body: "[PLACEHOLDER] · razón social, NIF/CIF, domicilio y datos de contacto del titular del sitio web.",
-        },
-        {
           heading: "Objeto",
-          body: "[PLACEHOLDER] · descripción del objeto del sitio y de las condiciones de uso aplicables a los visitantes.",
+          body: "Este sitio web tiene como finalidad presentar los servicios de automatización con inteligencia artificial que ofrece Cork Fountain y facilitar el contacto con clientes interesados. El acceso y la navegación por el sitio implican la aceptación de las condiciones recogidas en este aviso legal. El uso del sitio debe realizarse de forma diligente y conforme a la ley, quedando prohibido cualquier uso que pueda dañar el sitio, sus contenidos o los derechos de terceros.",
         },
         {
           heading: "Propiedad intelectual e industrial",
-          body: "[PLACEHOLDER] · titularidad de los contenidos, marcas y elementos del sitio, y usos permitidos.",
+          body: "Los contenidos de este sitio web —textos, diseño, gráficos, logotipos y demás elementos— son titularidad de Cork Fountain o se utilizan con autorización de sus titulares. Quedan reservados todos los derechos. No está permitida su reproducción, distribución, comunicación pública o transformación sin autorización expresa, salvo para uso personal y privado.",
         },
         {
           heading: "Responsabilidad",
-          body: "[PLACEHOLDER] · limitación de responsabilidad sobre el contenido y los enlaces externos.",
+          body: "Cork Fountain trabaja para que la información publicada en este sitio sea correcta y esté actualizada, pero no garantiza la ausencia de errores ni se hace responsable de los daños derivados del uso del sitio o de la imposibilidad de acceder a él. Este sitio puede contener enlaces a páginas de terceros (por ejemplo, herramientas de reserva de citas o redes sociales); Cork Fountain no se hace responsable de sus contenidos ni de sus políticas.",
         },
         {
           heading: "Legislación aplicable",
-          body: "[PLACEHOLDER] · legislación y fuero aplicables a la relación con los usuarios.",
+          body: "La relación entre Cork Fountain y los usuarios de este sitio se rige por la legislación española. Para cualquier controversia derivada del uso del sitio, las partes se someterán a los juzgados y tribunales competentes conforme a la normativa aplicable.",
+        },
+        {
+          heading: "Contacto",
+          body: "Para cualquier consulta relacionada con este aviso legal puedes escribir a alvaro@corkfountain.com.",
         },
       ]}
     />

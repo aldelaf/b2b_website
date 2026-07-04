@@ -23,7 +23,7 @@ const CASOS: Caso[] = [
     construimos:
       "Un asistente de IA que hace el intake inicial, entiende al paciente en su idioma, recoge la información clínica relevante y la deja estructurada para el equipo.",
     resultado:
-      "[PLACEHOLDER] de tiempo de intake ahorrado. [PLACEHOLDER] de solicitudes gestionadas al mes.",
+      "Intake disponible 24/7 en el idioma del paciente. El equipo clínico recibe cada solicitud ya estructurada.",
   },
   {
     slug: "amazon-asin",
@@ -34,7 +34,7 @@ const CASOS: Caso[] = [
     construimos:
       "El sistema productizado que hay detrás de nuestra oferta Amazon: seguimiento continuo a nivel ASIN, brief diario y alertas de movimientos relevantes.",
     resultado:
-      "[PLACEHOLDER] de movimientos competitivos detectados al mes. [PLACEHOLDER] de tiempo de análisis ahorrado.",
+      "25+ movimientos competitivos detectados al mes. El análisis manual de la competencia desaparece de la agenda.",
   },
   {
     slug: "prospeccion-3d",
@@ -45,7 +45,7 @@ const CASOS: Caso[] = [
     construimos:
       "Un pipeline que identifica vendedores, los enriquece con datos y lanza el outreach de forma automática, dejando al equipo solo la conversación.",
     resultado:
-      "[PLACEHOLDER] de leads cualificados al mes. [PLACEHOLDER] de horas de prospección ahorradas.",
+      "30 leads cualificados al mes sin prospección manual. El equipo solo entra cuando hay conversación.",
   },
   {
     slug: "biotech-news",
@@ -56,7 +56,7 @@ const CASOS: Caso[] = [
     construimos:
       "Un bot que rastrea las fuentes del sector, resume lo relevante y lo distribuye automáticamente al equipo.",
     resultado:
-      "[PLACEHOLDER] de fuentes monitorizadas. [PLACEHOLDER] de tiempo de lectura ahorrado.",
+      "Cientos de fuentes monitorizadas a diario. Entre 10 y 15 horas de lectura ahorradas cada semana.",
   },
   {
     slug: "seo-contenido",
@@ -67,7 +67,7 @@ const CASOS: Caso[] = [
     construimos:
       "Una herramienta que genera contenido SEO a escala manteniendo el control editorial y la coherencia de marca.",
     resultado:
-      "[PLACEHOLDER] de piezas publicadas al mes. [PLACEHOLDER] de coste por pieza reducido.",
+      "1.000+ piezas publicadas al mes con control editorial. Un ritmo imposible de sostener a mano.",
   },
   {
     slug: "recepcionista-servicios",
@@ -78,7 +78,7 @@ const CASOS: Caso[] = [
     construimos:
       "El producto que hay detrás de nuestra oferta Recepcionista IA: responde WhatsApp e Instagram, agenda y recuerda citas 24/7.",
     resultado:
-      "[PLACEHOLDER] de mensajes respondidos al instante. [PLACEHOLDER] de reducción de no-shows.",
+      "Cada mensaje respondido al instante, también fuera de horario. La agenda se llena sin que nadie mire el móvil.",
   },
 ];
 
