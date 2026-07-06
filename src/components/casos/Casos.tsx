@@ -78,7 +78,7 @@ const CASOS: Caso[] = [
     construimos:
       "El producto que hay detrás de nuestra oferta Recepcionista IA: responde WhatsApp e Instagram, agenda y recuerda citas 24/7.",
     resultado:
-      "Cada mensaje respondido al instante, también fuera de horario. La agenda se llena sin que nadie mire el móvil.",
+      "Mensajes respondidos en segundos, las 24 horas. Los recordatorios automáticos reducen los no-shows en torno a un 25%.",
   },
 ];
 
