@@ -136,8 +136,8 @@ export default function Recepcionista() {
                   <CountUp value={40} suffix="%" />
                 </div>
                 <p className="text-sm text-zinc-400 leading-relaxed">
-                  de los mensajes a salones llegan fuera de horario.{" "}
-                  <span className="text-zinc-600">[VERIFY_STAT]</span>
+                  de las reservas de salón se hacen fuera del horario de
+                  apertura.
                 </p>
               </div>
             </Reveal>
@@ -158,8 +158,7 @@ export default function Recepcionista() {
                   30-60 €
                 </div>
                 <p className="text-sm text-zinc-400 leading-relaxed">
-                  Cada no-show son 30 a 60 euros que no vuelven.{" "}
-                  <span className="text-zinc-600">[VERIFY_STAT]</span>
+                  Cada no-show son 30 a 60 euros que no vuelven.
                 </p>
               </div>
             </Reveal>

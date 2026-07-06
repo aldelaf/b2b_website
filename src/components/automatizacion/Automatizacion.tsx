@@ -257,7 +257,7 @@ export default function Automatizacion() {
                   </div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl md:text-5xl font-semibold tracking-tighter text-zinc-50 tabular-nums">
-                      [PRECIO_AUDITORIA]
+                      1.950 €
                     </span>
                   </div>
                   <div className="mt-5 flex flex-col gap-2.5 text-sm text-zinc-300">
