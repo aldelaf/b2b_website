@@ -16,6 +16,7 @@ import type { Icon } from "@phosphor-icons/react";
 import Reveal from "@/components/site/Reveal";
 import ProcessFlow from "./ProcessFlow";
 import { openCalModal } from "@/components/CalEmbed";
+import { CAL_LINK_AUDITORIA } from "@/components/site/nav-config";
 
 const spring = { type: "spring" as const, stiffness: 100, damping: 20 };
 
@@ -122,7 +123,7 @@ export default function Automatizacion() {
             </Reveal>
             <Reveal delay={0.15}>
               <button
-                onClick={() => openCalModal()}
+                onClick={() => openCalModal(CAL_LINK_AUDITORIA)}
                 className="group inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-all duration-300 active:scale-[0.98] cursor-pointer"
               >
                 Solicitar auditoría de procesos
@@ -293,7 +294,7 @@ export default function Automatizacion() {
                   </p>
 
                   <button
-                    onClick={() => openCalModal()}
+                    onClick={() => openCalModal(CAL_LINK_AUDITORIA)}
                     className="group mt-6 w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 text-base font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-all duration-300 active:scale-[0.98] cursor-pointer"
                   >
                     Solicitar auditoría
@@ -453,7 +454,7 @@ export default function Automatizacion() {
                 </div>
                 <div className="md:col-span-4 flex md:justify-end">
                   <button
-                    onClick={() => openCalModal()}
+                    onClick={() => openCalModal(CAL_LINK_AUDITORIA)}
                     className="group inline-flex items-center justify-center gap-3 h-14 px-8 text-base font-medium text-amber-400 bg-zinc-950 rounded-full hover:bg-zinc-900 transition-all duration-300 active:scale-[0.98] cursor-pointer"
                   >
                     Reservar llamada

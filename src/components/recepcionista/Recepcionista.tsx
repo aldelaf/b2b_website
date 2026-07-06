@@ -15,6 +15,7 @@ import Reveal from "@/components/site/Reveal";
 import CountUp from "@/components/site/CountUp";
 import WhatsappMockup from "./WhatsappMockup";
 import { openCalModal } from "@/components/CalEmbed";
+import { CAL_LINK_RECEPCIONISTA } from "@/components/site/nav-config";
 
 const STEPS: { icon: Icon; title: string; body: string }[] = [
   {
@@ -372,7 +373,7 @@ export default function Recepcionista() {
                     </span>
                   </div>
                   <button
-                    onClick={() => openCalModal()}
+                    onClick={() => openCalModal(CAL_LINK_RECEPCIONISTA)}
                     className="group mt-7 w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 text-base font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-all duration-300 active:scale-[0.98] cursor-pointer"
                   >
                     La quiero en mi salón
@@ -404,7 +405,7 @@ export default function Recepcionista() {
                 Si no te quita el móvil de las manos, no pagas.
               </p>
               <button
-                onClick={() => openCalModal()}
+                onClick={() => openCalModal(CAL_LINK_RECEPCIONISTA)}
                 className="group inline-flex items-center justify-center gap-3 h-14 px-8 text-base font-medium text-amber-400 bg-zinc-950 rounded-full hover:bg-zinc-900 transition-all duration-300 active:scale-[0.98] cursor-pointer"
               >
                 Quiero mi recepcionista

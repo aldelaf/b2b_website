@@ -18,6 +18,8 @@ interface SiteNavProps {
   ctaLabel: string;
   /** If set, the CTA is a plain link; otherwise it opens the Cal.com modal. */
   ctaHref?: string;
+  /** Cal.com event for the modal CTA; omit for the default diagnostic event. */
+  calLink?: string;
   /** Optional extra control (e.g. the homepage language toggle). */
   rightSlot?: ReactNode;
 }
@@ -27,6 +29,7 @@ export default function SiteNav({
   active,
   ctaLabel,
   ctaHref,
+  calLink,
   rightSlot,
 }: SiteNavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -40,7 +43,7 @@ export default function SiteNav({
     </a>
   ) : (
     <button
-      onClick={() => openCalModal()}
+      onClick={() => openCalModal(calLink)}
       className="inline-flex items-center justify-center h-10 px-5 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-colors duration-300 active:scale-[0.98] cursor-pointer"
     >
       {ctaLabel}
@@ -128,7 +131,7 @@ export default function SiteNav({
                 <button
                   onClick={() => {
                     setMobileOpen(false);
-                    openCalModal();
+                    openCalModal(calLink);
                   }}
                   className="inline-flex items-center justify-center h-12 px-6 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full mt-2 cursor-pointer"
                 >

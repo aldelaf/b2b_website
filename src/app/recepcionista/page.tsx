@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/site/SiteNav";
 import SiteFooter from "@/components/site/SiteFooter";
-import { NAV_ITEMS_ES } from "@/components/site/nav-config";
+import { NAV_ITEMS_ES, CAL_LINK_RECEPCIONISTA } from "@/components/site/nav-config";
 import Recepcionista from "@/components/recepcionista/Recepcionista";
 
 export const metadata: Metadata = {
@@ -25,6 +25,7 @@ export default function RecepcionistaPage() {
         items={NAV_ITEMS_ES}
         active="/recepcionista"
         ctaLabel="La quiero"
+        calLink={CAL_LINK_RECEPCIONISTA}
       />
       <main>
         <Recepcionista />
