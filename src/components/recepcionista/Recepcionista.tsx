@@ -3,6 +3,7 @@
 import {
   ArrowRight,
   InstagramLogo,
+  PlayCircle,
   Plugs,
   GraduationCap,
   CalendarCheck,
@@ -81,14 +82,20 @@ export default function Recepcionista() {
               </Reveal>
               <Reveal delay={0.15}>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  {/* Demo-video CTA pending the recording — when the URL exists, add back
-                      an <a> with PlayCircle ("Ver una demo de 2 minutos") as the primary
-                      button and demote Instagram to the outlined secondary style. */}
+                  <a
+                    href="https://recepcionista-ia-mu.vercel.app/demo/aleria-beauty"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-all duration-300 active:scale-[0.98]"
+                  >
+                    <PlayCircle size={18} weight="fill" />
+                    Prueba la demo tú mismo
+                  </a>
                   <a
                     href="https://www.instagram.com/corkfountain/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-zinc-950 bg-amber-400 rounded-full hover:bg-amber-300 transition-all duration-300 active:scale-[0.98]"
+                    className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-zinc-200 border border-zinc-700/70 rounded-full hover:border-zinc-500 hover:text-zinc-50 transition-all duration-300"
                   >
                     <InstagramLogo size={18} weight="bold" />
                     Escríbenos por Instagram
@@ -292,9 +299,18 @@ export default function Recepcionista() {
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
+                <p className="text-lg md:text-xl text-zinc-200 leading-relaxed max-w-[44ch] mb-6 font-medium">
+                  Cada mensaje contestado al instante, las 24 horas, con tu tono
+                  — o ese mes es gratis.
+                </p>
+              </Reveal>
+              <Reveal delay={0.15}>
                 <p className="text-base text-zinc-400 leading-relaxed max-w-[48ch]">
-                  Menos de lo que te cuesta una sola cita perdida a la semana. Si
-                  no te encaja, lo dejas cuando quieras.
+                  Una recepcionista humana cuesta entre 1.000 y 1.300 € al mes,
+                  libra los findes y coge vacaciones. Esta contesta en un
+                  segundo y no duerme. Y las apps de agenda como Booksy (35
+                  €/mes) o Treatwell (16 €/mes) solo muestran tu calendario:
+                  esta contesta y agenda por ti.
                 </p>
               </Reveal>
             </div>
@@ -303,13 +319,19 @@ export default function Recepcionista() {
               <Reveal delay={0.1}>
                 <div className="rounded-2xl border border-amber-500/25 bg-gradient-to-b from-amber-500/[0.06] to-transparent p-7 md:p-9">
                   <div className="text-xs font-medium tracking-widest uppercase text-amber-400/80 mb-3">
-                    Recepcionista IA
+                    Precio de lanzamiento · 10 primeros salones
                   </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl md:text-5xl font-semibold tracking-tighter text-zinc-50">
-                      [PRICING_RECEPCIONISTA]
+                  <div className="flex items-baseline gap-3 flex-wrap">
+                    <span className="text-4xl md:text-5xl font-semibold tracking-tighter text-zinc-50 tabular-nums">
+                      97 €/mes
+                    </span>
+                    <span className="text-sm text-zinc-500">
+                      después 147 €/mes
                     </span>
                   </div>
+                  <p className="mt-2 text-sm text-zinc-400">
+                    Precio bloqueado 12 meses.
+                  </p>
                   <div className="mt-5 flex flex-col gap-2.5 text-sm text-zinc-300">
                     <span className="inline-flex items-start gap-2">
                       <Check
@@ -325,7 +347,13 @@ export default function Recepcionista() {
                         weight="bold"
                         className="text-amber-400 mt-0.5 flex-shrink-0"
                       />
-                      Puesta en marcha incluida: [SETUP_RECEPCIONISTA]
+                      <span>
+                        Montaje: <s className="text-zinc-500">147 €</s>{" "}
+                        <span className="font-semibold text-zinc-100">
+                          GRATIS
+                        </span>{" "}
+                        para los 10 primeros
+                      </span>
                     </span>
                     <span className="inline-flex items-start gap-2">
                       <Check
@@ -334,6 +362,14 @@ export default function Recepcionista() {
                         className="text-amber-400 mt-0.5 flex-shrink-0"
                       />
                       WhatsApp e Instagram incluidos
+                    </span>
+                    <span className="inline-flex items-start gap-2">
+                      <Check
+                        size={16}
+                        weight="bold"
+                        className="text-amber-400 mt-0.5 flex-shrink-0"
+                      />
+                      14 días de prueba con tu Instagram y WhatsApp reales
                     </span>
                   </div>
                   <button
@@ -364,8 +400,9 @@ export default function Recepcionista() {
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tighter leading-[1.05] text-zinc-950 mb-5 max-w-[18ch]">
                 En 48 horas la tienes contestando en tu WhatsApp.
               </h2>
-              <p className="text-base md:text-lg text-amber-950/70 leading-relaxed max-w-[44ch] mb-8">
-                Escríbenos y la dejamos lista para tu salón. Sin líos.
+              <p className="text-base md:text-lg text-amber-950/70 leading-relaxed max-w-[46ch] mb-8">
+                Pruébala 14 días conectada a tu Instagram y WhatsApp de verdad.
+                Si no te quita el móvil de las manos, no pagas.
               </p>
               <button
                 onClick={() => openCalModal()}
