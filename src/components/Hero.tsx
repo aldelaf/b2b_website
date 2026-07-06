@@ -21,31 +21,30 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center pt-16 overflow-hidden">
-      {/* Static frame of the homepage light-grid — same palette, no heavy video
-          on this page (the moving-light animation only ships on the homepage). */}
-      <img
-        src="/frames/frame-030.jpg"
-        alt=""
+      {/* Lightweight CSS-only background: faint blueprint grid fading out
+          radially, under the same amber top glow the Spanish offer pages use.
+          No image or video assets — nothing to decode or repaint. */}
+      <div
+        className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-
-      <div
-        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, transparent 20%, #0A1628 75%)",
+          backgroundImage:
+            "linear-gradient(rgba(148,163,184,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.07) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          maskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 42%, black 25%, transparent 72%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 42%, black 25%, transparent 72%)",
         }}
       />
       <div
-        className="absolute inset-0 pointer-events-none md:hidden"
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
         style={{
           background:
-            "radial-gradient(ellipse 80% 40% at 50% 50%, transparent 10%, #0A1628 65%)",
+            "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(245,184,46,0.08), transparent 60%)",
         }}
       />
-
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0A1628] via-transparent to-[#0A1628] opacity-80 md:opacity-60" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 w-full">
         <div className="flex flex-col items-center text-center gap-8 max-w-3xl mx-auto">
