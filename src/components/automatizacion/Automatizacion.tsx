@@ -321,7 +321,7 @@ export default function Automatizacion() {
               </p>
               <p className="text-xl md:text-2xl font-medium tracking-tight leading-snug text-zinc-100 max-w-[46ch]">
                 Si al terminar la auditoría no tienes un plan concreto que
-                puedas ejecutar — con nosotros o con quien quieras —, te
+                puedas ejecutar, con nosotros o con quien quieras, te
                 devolvemos el importe íntegro.
               </p>
             </div>
