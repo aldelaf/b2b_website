@@ -258,7 +258,7 @@ export default function Automatizacion() {
                   </div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl md:text-5xl font-semibold tracking-tighter text-zinc-50 tabular-nums">
-                      1.950 €
+                      desde 1.250 €
                     </span>
                   </div>
                   <div className="mt-5 flex flex-col gap-2.5 text-sm text-zinc-300">
@@ -308,6 +308,24 @@ export default function Automatizacion() {
               </Reveal>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 3b. Garantía — sober statement block, no badges or icons */}
+      <section className="py-16 md:py-20 border-t border-zinc-900/60">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+          <Reveal>
+            <div className="max-w-3xl mx-auto rounded-2xl border border-amber-500/25 bg-[#0C1A2E]/60 px-8 py-10 md:px-12 md:py-12">
+              <p className="text-xs font-medium tracking-widest uppercase text-amber-400 mb-4">
+                Garantía
+              </p>
+              <p className="text-xl md:text-2xl font-medium tracking-tight leading-snug text-zinc-100 max-w-[46ch]">
+                Si al terminar la auditoría no tienes un plan concreto que
+                puedas ejecutar — con nosotros o con quien quieras —, te
+                devolvemos el importe íntegro.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
